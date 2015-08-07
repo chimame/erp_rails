@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
+gem 'settingslogic'
+gem 'kaminari'
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,14 +35,32 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :development do
+  gem 'binding_of_caller'
+  gem 'rubocop'
+  gem 'bullet'
+  gem 'rack-mini-profiler'
+end
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'turnip'
+  gem 'factory_girl_rails', require: false
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
+group :test do
+  gem "simplecov", require: false
+  gem 'timecop'
+#  gem 'webmock'
+end
