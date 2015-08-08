@@ -1,0 +1,5 @@
+--color
+--require spec_helper
+-r turnip/rspec
+--format d
+--drb
